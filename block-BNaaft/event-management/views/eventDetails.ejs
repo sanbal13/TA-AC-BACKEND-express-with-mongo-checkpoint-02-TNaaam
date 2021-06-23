@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>    
+    <%- include('header') -%>
+    <main>
+     <!-- Event Details -->   
+     <div class="card-details">
+        <ul>
+            <li><span class="caption">Title: </span><%= event.title %></li>
+            <li><span class="caption">Summary: </span><%= event.summary %></li>
+            <li><span class="caption">Host: </span><%= event.host %></li>
+            <li><span class="caption">Start-date:</span> <% if(event.start_date) { %>
+                <%= event.start_date.getDate()%> / <%= event.start_date.getMonth() 
+                + 1 %> / <%= event.start_date.getFullYear() %>
+                <% } %>
+            </li>
+            <li><span class="caption">End-date:</span> <% if(event.end_date) { %>
+                <%= event.end_date.getDate()%> / <%= event.end_date.getMonth() 
+                + 1 %> / <%= event.end_date.getFullYear()%>
+                <% } %>
+            </li>
+            <li><span class="caption">Category: </span><% event.event_category.forEach((category) => { %>
+                <a href='<%= category %>/filter'><span class="category"><%= category %></span></a>
+            <% }) %></li>
+            <li><span class="caption">Location: </span><%= event.location %></li>
+            <li><span class="caption">Likes: </span><%= event.likes %></li>        
+        </ul>
+        <!-- Event Buttons -->
+        <div class="card-buttons">
+            <a href ="/events/<%= event.id %>/edit" class="button edit">Edit</a>
+            <a href ="/events/<%= event.id %>/delete" class="button delete">Delete</a>
+            <a href ="/events/<%= event.id %>/like" class="button like">Like</a>
+            <a href ="/events/<%= event.id %>/dislike" class="button dislike">Dislike</a>
+        </div>
+    </div>
+    <!-- Remark Form -->
+    <form action="/events/<%= event.id %>/remark" method="post">
+    <textarea name="title" id="title" cols="30" rows="5" placeholder="Enter your remark"></textarea>
+    <input type="text" name="author" id="author" placeholder="Enter your name">
+    <button type="submit">Add Remark</button>
+    </form>
+    <!-- Remark List -->
+    <ul class = "remarks-list">
+        <h4> Remarks </h4>
+        <% event.remarks.forEach((remark)=>{ %>
+            <li>
+                <div class="author">Posted by <strong><%= remark.author %></strong></div> 
+                <div class="remark"><%= remark.title %></div>         
+            <!-- Remark buttons -->       
+            <div class="remark-buttons">
+                <a href ="/remarks/<%= remark.id %>/edit" class="button edit">Edit</a>
+                <a href ="/remarks/<%= remark.id %>/delete" class="button delete">Delete</a>
+                <a href ="/remarks/<%= remark.id %>/like" class="button like">Like</a>
+                <a href ="/remarks/<%= remark.id %>/dislike" class="button dislike">Dislike</a>
+            </div>
+            <span class = "remark-like"> Likes: <%= remark.likes %> </span>
+        </li>
+        <% }) %>        
+    </ul>
+        
+    </main>
+    <%- include('footer') -%>
+</body>
+</html>

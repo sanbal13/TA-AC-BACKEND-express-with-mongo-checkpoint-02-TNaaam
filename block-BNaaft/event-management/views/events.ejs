@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%- include('header') -%>
+    <div class="flex">
+    <main class = "container">
+        
+        <a href ="/events/addEvent" class="button">Add A New Event</a>
+        
+        <!-- Filter -->
+        <form action="/events/filter" method="post">
+        <select name="filter" id="filter">            
+            <option value = "oldest">Oldest</option>
+            <option value = "latest">Latest</option>
+            <option value = "category">Category</option>
+            <option value = "location">Location</option>
+        </select>
+        <input type="text" name="value" id="value" placeholder="Enter a value for category or description">
+        <button type="submit">Search</button>
+        </form>    
+        <h3> Scheduled Events</h3>
+        <!-- Card Display -->
+        <% events.forEach((event) => { %>
+            <ul class="card-brief">
+                <li><span class="caption">Title:</span> <%= event.title %></li>
+                <li><span class="caption">Start-date:</span> <% if(event.start_date) { %>
+                    <%= event.start_date.getDate()%> / <%= event.start_date.getMonth() 
+                    + 1 %> / <%= event.start_date.getFullYear()%>
+                    <% } %>
+                </li>
+                <li><span class="caption">End-date:</span> <% if(event.end_date) { %>
+                    <%= event.end_date.getDate()%> / <%= event.end_date.getMonth() 
+                    + 1 %> / <%= event.end_date.getFullYear()%>
+                    <% } %>
+                </li>
+                <a href="/events/<%= event.id %>" class="know-more">Know More</a>
+            </ul>
+        <% }) %>
+    </main>
+    <!-- Aside -->
+    <aside>
+      <% let tags = [];      
+        events.forEach((event) => {
+          event.event_category.forEach((category) => {
+            tags.push(category);            
+          })
+      })
+      tags = Array.from(new Set(tags));
+      tags.forEach((tag) => { %>
+        <a href="/events/<%= tag %>/filter" class="tag"><%= tag %></a>
+     <% });%>
+    </aside>
+    </div>
+    <%- include('footer') -%>    
+</body>
+</html>
