@@ -1,0 +1,351 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*************************** Custom Styles begins here ********************/
+html {
+    font-size: 16px;
+}
+body {
+    line-height: 1.5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #BFDBFE;
+
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0rem auto;
+    padding: 0 1rem;
+}
+p {
+    color: rgba(30, 64, 175, .6); 
+    margin: 1rem 0;
+}
+.button {
+    display: inline-block;
+    background-color: #1E3A8A;
+    color: #93C5FD;
+    margin-top: 1rem;
+    padding: .5rem .8rem;
+    font-weight: 700;
+    box-shadow: 1px 1px 5px grey;
+    border-radius: .5rem;
+}
+.button:hover {
+    background-color: #93C5FD;
+    color: #1E3A8A;
+}
+.like {
+    background-color: green;
+}
+.like:hover {
+    color: green;
+}
+.dislike {
+    background-color: red;
+}
+.dislike:hover {
+    color: red;
+}
+.align-center {
+    text-align: center;
+}
+strong {
+    font-weight: 700;
+}
+/**************** Flex ****************/
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex-20 {
+    flex: 0 1 20%;
+}
+.flex-30 {
+    flex: 0 1 30%;
+}
+.flex-45 {
+    flex: 0 1 45%;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/************** Headings **************/
+h1, h2, h3, h4 {
+    font-weight: 700;
+    color: #1E40AF;
+}
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+h4 {
+    font-size: 1.4rem;
+}
+
+/************** Header **************/
+header { 
+  background-color: rgba(30, 58, 138, .2);
+  padding: 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 1rem;
+}
+.brand-main {
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 2px grey;
+}
+.brand-sub {
+  font-size: .7rem;
+  font-weight: 400;
+  text-shadow: .5px .5px .7px grey;
+  line-height: .1rem;
+}
+.nav li {
+  margin-left: 2rem;
+}
+.nav-bar a {
+  color: #78350F;
+}
+
+/************** Main **************/
+main {
+    min-height: 71vh;
+}
+/* Hero */
+.hero-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+}
+/* About */
+.about {
+  margin-top: 100vh;
+}
+.about-img img {
+    width: 100%;
+    box-shadow: 5px 5px 10px #1E3A8A;
+}
+.about-us {
+    border-left: 5px solid #1E3A8A;
+    padding: 1rem;
+    box-shadow: 10px 10px 20px #1E3A8A;
+}
+/********************************************** Events **********************************************/
+/***** Card formating *****/
+.card-brief {
+    background-color: #3f1903;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    color: #93C5FD;
+    text-align: center;
+    font-weight: 700;    
+    position: relative;
+    font-size: 1.2rem;
+    line-height: 2;
+}
+.card-details, .remarks-list {
+    background-color: #fff;
+    border-left: 10px solid #1E3A8A;
+    box-shadow: 1px 1px 10px #1E3A8A;
+    width: 500px;
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 5rem;
+    color: #60A5FA;
+    text-align: left;
+}
+.remarks-list {
+    margin-top: 1rem;
+}
+.remarks-list li {
+    box-shadow: inset 1px 1px 10px grey;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+.remark-buttons {
+    font-size: 1rem;
+}
+.remark-like {
+    background-color: silver;
+    color: rgb(110, 95, 7);
+    padding: .5rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-bottom-right-radius: .5rem;
+}
+.caption {
+    color:rgb(223, 194, 80);
+    font-weight: 700;
+}
+.know-more {
+    background-color: salmon;
+    color:rgba(165, 42, 42, .7);
+    cursor: pointer;
+    padding: .5rem;
+    border-bottom-right-radius: .5rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.know-more:hover {
+    background-color: rgba(165, 42, 42);
+    color: salmon;
+}
+.category {
+    background-color: yellowgreen;
+    margin-right: .5rem;
+    padding: .2rem;
+    color: #fff;
+}
+.category:hover {
+    background-color: rgb(70, 102, 5);
+}
+.author {
+    font-size: .9rem;
+}
+
+/***** Form *****/
+form {
+    width: 500px;
+    border: .4rem double rgba(165, 42, 42, .7);
+    margin: 0 auto;
+    padding: 2rem;
+    margin-top: 1rem;
+    background-color: rgba(253, 230, 138, .8);
+}
+input, button, textarea, select {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: .5rem .8rem;
+    border: 0;
+    outline: 0;
+    border-radius: .5rem;
+    font-size: 1.1rem;    
+}
+input, textarea {
+    box-shadow: 1px 1px 5px grey;
+}
+
+button {
+    background-color: #78350F;
+    color:rgba(253, 230, 138, .8);
+    font-weight: 700;
+    margin-top: 1rem;
+    box-shadow: 1px 1px 5px grey;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #3f1903;
+    color: rgba(253, 230, 138);
+    box-shadow: 1px 1px 10px grey;
+}
+
+/* ********** Aside ******************* */
+aside {
+    background-color: Blue;
+    height: 80vh;
+    margin-right: 1rem;
+    width: 20%;
+}
+aside li {
+    padding: 1rem;
+    border-bottom: 2px solid #60A5FA;
+    text-align: center;
+}
+.tag {
+    display: inline-block;
+    background-color: #fff;
+    padding: .5rem;
+    margin: .5rem;
+}
+
+
+/************** Footer **************/
+footer {
+  background-color: #1E3A8A;
+  color: #60A5FA;
+  padding: 1rem;
+  margin-top: 5rem;
+  text-align: center;
+}
+small {
+  font-size: .9rem;
+}
