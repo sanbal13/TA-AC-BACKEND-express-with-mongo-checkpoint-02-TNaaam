@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event Form</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%- include('header'); -%>
+    <div class="align-center">
+    <h3> Edit Event Form</h3>
+    <%  
+    function getDate(inputDate) {
+    let year = inputDate.getFullYear();
+    let month = inputDate.getMonth()+1;
+    let date = inputDate.getDate();
+    month = (month < 10) ? ('0' + month) : month;
+    date = (date < 10) ? ('0' + date) : date;
+    let finalDate = year + '-' + month + '-' + date;
+    return finalDate;
+    }
+    let startDate = getDate(event.start_date);
+    let endDate = getDate(event.end_date);
+    %>
+    <form action="/events/<%= event.id %>" method="post">
+    <input type="text" name="title" id="title" placeholder="Enter the title of the event" value=<%= event.title %>>
+    <textarea name="summary" id="summary" cols="30" rows="10" placeholder="Enter the summary"><%= event.summary %></textarea>
+    <input type="text" name="host" id="host" placeholder="Enter the host name" value=<%= event.host %>>
+    <input type="date" name="start_date" id="start_date" placeholder="Start Date" value=<%= startDate %>> 
+    <input type="date" name="end_date" id="end_date" placeholder="End Date" value= <%= endDate %>> 
+    <input type="text" name="event_category" id="event_category" placeholder="Categories" 
+                       value= <%= event.event_category.join(" ") %> >
+    <input type="text" name="location" id="location" placeholder="Location" value=<%= event.location %>>
+    <button type="submit">Edit Event</button>
+    </form>    
+    </div>
+    <%- include('footer'); -%>
+</body>
+</html>
